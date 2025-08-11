@@ -3,45 +3,32 @@ package com.duaa.redditnewsreader
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.duaa.redditnewsreader.ui.theme.RedditNewsReaderTheme
+import androidx.hilt.navigation.compose.hiltViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import com.duaa.redditnewsreader.presentation.navigation.AppNavigation
+import com.duaa.redditnewsreader.presentation.viewmodel.NewsViewModel
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            RedditNewsReaderTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        setContent{
+            Greeting()
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Greeting(modifier: Modifier = Modifier) {
+    val vm: NewsViewModel = hiltViewModel()
+    AppNavigation(vm)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    RedditNewsReaderTheme {
-        Greeting("Android")
-    }
+    Greeting()
 }
