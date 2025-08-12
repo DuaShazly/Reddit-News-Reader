@@ -12,6 +12,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.duaa.redditnewsreader.R
 import com.duaa.redditnewsreader.domain.model.Article
@@ -47,7 +48,7 @@ fun NewsListScreen(state: NewsListState, onClick: (Article) -> Unit) {
                             contentScale = ContentScale.Crop
                         )
                     }
-                    Text(text = article.title, fontWeight = FontWeight.Bold, modifier = Modifier.padding(top = 8.dp))
+                    Text(text = article.title,fontSize=14.sp, fontWeight = FontWeight.Bold,  modifier = Modifier.padding(top = 16.dp))
                 }
             }
         }
