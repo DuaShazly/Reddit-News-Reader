@@ -9,6 +9,8 @@ lifecycleRuntimeKtxVersion = "2.9.2"
 activityComposeVersion = "1.10.1"
 composeBomVersion = "2025.07.00"
 
+lifecycleViewmodelComposeVersion = "2.9.2"
+loggingInterceptorVersion = "5.1.0"
 multidexVersion = "2.0.1"
 retrofitVersion = "3.0.0"
 retrofitKsxVersion = "1.0.0"
@@ -22,6 +24,8 @@ kotlinxSerializationJson = "1.9.0"
 coilVersion = "2.7.0"
 coroutinesVersion = "1.10.2"
 
+okhttp3LoggingInterceptorVersion = "5.1.0"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtxVersion" }
 androidx-multidex = { group = "androidx.multidex", name="multidex", version.ref = "multidexVersion" }
@@ -30,7 +34,9 @@ junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtxVersion" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityComposeVersion" }
+androidx-activity-ktx = {group = "androidx.activity", name = "activity-ktx", version.ref ="activityComposeVersion"}
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBomVersion" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
@@ -59,6 +65,9 @@ coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coi
 
 coroutines-core = { group = "org.jetbrains.kotlinx", name ="kotlinx-coroutines-core",version.ref = "coroutinesVersion" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name= "kotlinx-coroutines-android", version.ref = "coroutinesVersion" }
+
+okhttp3-logging-interceptor= {group= "com.squareup.okhttp3", name="logging-interceptor", version.ref="okhttp3LoggingInterceptorVersion"}
+okhttp3-okhttp = {group = "com.squareup.okhttp3", name ="okhttp" , version.ref="okhttp3LoggingInterceptorVersion"}
 
 
 [plugins]

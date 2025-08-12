@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.duaa.redditnewsreader.domain.model.Article
 import com.duaa.redditnewsreader.domain.usecase.GetKotlinNewsUseCase
 import com.duaa.redditnewsreader.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -15,7 +17,8 @@ data class NewsListState(
     val error: String = ""
 )
 
-class NewsViewModel(private val useCase: GetKotlinNewsUseCase) : ViewModel() {
+@HiltViewModel
+class NewsViewModel @Inject constructor(private val useCase: GetKotlinNewsUseCase) : ViewModel() {
     private val _state = MutableStateFlow(NewsListState())
     val state: StateFlow<NewsListState> = _state
 

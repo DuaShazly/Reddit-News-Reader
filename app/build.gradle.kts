@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.kapt)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -36,7 +37,9 @@ android {
     }
     compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
 
-
+    kotlinOptions {
+        jvmTarget = "17"
+    }
     buildFeatures {
         compose = true
     }
@@ -44,11 +47,19 @@ android {
 
 }
 
+kotlin {
+    jvmToolchain(17) //  <-- SET YOUR DESIRED JVM VERSION HERE (e.g., 17)
+}
+
 dependencies {
     implementation(libs.androidx.multidex)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime)
+
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.activity.ktx)
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -73,11 +84,15 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.converter.kotlinx.serialization)
     implementation(libs.retrofit.kotlinx.converter)
+    implementation("com.squareup.okhttp3:okhttp:5.1.0")
+
 
     implementation(libs.coil.compose)
 
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+
+    implementation(libs.okhttp3.logging.interceptor)
 
 
 }

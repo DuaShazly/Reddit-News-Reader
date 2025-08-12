@@ -1,14 +1,18 @@
 package com.duaa.redditnewsreader.presentation.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.duaa.redditnewsreader.R
 import com.duaa.redditnewsreader.domain.model.Article
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,6 +38,15 @@ fun ArticleDetailScreen(article: Article, onBack: () -> Unit) {
                         .height(200.dp)
                 )
                 Spacer(modifier = Modifier.height(12.dp))
+            }.run {
+                Image(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(200.dp),
+                    painter = painterResource(id =R.drawable.reddit_logo),
+                    contentDescription = "My image",
+                    contentScale = ContentScale.Crop
+                )
             }
             Text(text = article.selfText ?: "No content available.")
         }
