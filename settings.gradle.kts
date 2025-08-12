@@ -9,7 +9,8 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
-
+        maven(url="https://plugins.gradle.org/m2/")
+        mavenLocal()
     }
 }
 dependencyResolutionManagement {
@@ -20,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Reddit News Reader"
+rootProject.name = "Reddit-News-Reader"
 include(":app")
